@@ -1,0 +1,43 @@
+<main class="users-container">
+  <div class="users-container_actions">
+    <button type="button" mat-raised-button routerLink="/users/create">Crear usuario</button>
+  </div>
+
+  <table mat-table [dataSource]="this.users" class="mat-elevation-z8">
+    <ng-container matColumnDef="position">
+      <th mat-header-cell *matHeaderCellDef> No. </th>
+      <td mat-cell *matCellDef="let element"> {{element.index}} </td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef> Nombre </th>
+      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="lastname">
+      <th mat-header-cell *matHeaderCellDef> Apellido </th>
+      <td mat-cell *matCellDef="let element"> {{element.lastname}} </td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="age">
+      <th mat-header-cell *matHeaderCellDef> Edad </th>
+      <td mat-cell *matCellDef="let element"> {{element.age}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="birthday">
+      <th mat-header-cell *matHeaderCellDef> Birth </th>
+      <td mat-cell *matCellDef="let element">
+        {{ element.birth.getDate() }} <br>
+        {{element.birth.getMonth() + 1}} <br>
+        {{element.birth.getFullYear()}}
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</main>
+

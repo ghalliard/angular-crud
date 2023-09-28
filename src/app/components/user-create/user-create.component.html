@@ -1,0 +1,54 @@
+<main class="create-user-container">
+  <form [formGroup]="this.form" (ngSubmit)="createUser()">
+    <mat-card class="card">
+      <mat-card-header>
+        <h1>Crear cliente</h1>
+      </mat-card-header>
+
+      <mat-card-content class="create-user-container_form">
+        <div class="input-form-container">
+          <mat-form-field class="input-form">
+            <mat-label>Nombre</mat-label>
+            <input type="text" matInput formControlName="name">
+            <mat-hint>Tu primer nombre</mat-hint>
+            <mat-error *ngIf="this.nameForm?.invalid">Este campo es requerido</mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="input-form-container">
+          <mat-form-field class="input-form">
+            <mat-label>Apellido</mat-label>
+            <input type="text" matInput formControlName="lastname">
+            <mat-hint>Apellido Paterno</mat-hint>
+            <mat-error *ngIf="this.lastNameForm?.invalid">Este campo es requerido</mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="input-form-container">
+          <mat-form-field class="input-form">
+            <mat-label>Edad</mat-label>
+            <input type="number" matInput formControlName="age">
+            <mat-error *ngIf="this.ageForm?.invalid">Este campo es requerido</mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="input-form-container">
+          <mat-form-field class="input-form">
+            <mat-label>birth</mat-label>
+            <input matInput [matDatepicker]="picker" formControlName="birth">
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-error *ngIf="this.birthForm?.invalid">Este campo es requerido</mat-error>
+            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+        </div>
+
+        <mat-card-actions>
+          <button mat-raised-button type="submit">Crear cliente</button>
+        </mat-card-actions>
+
+      </mat-card-content>
+    </mat-card>
+  </form>
+
+</main>

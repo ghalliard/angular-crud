@@ -1,0 +1,22 @@
+.create-user-container{
+  padding: 24px;
+  &_form{
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    .input-form-container{
+      .input-form{
+        width: 100%;
+      }
+    }
+  }
+}
+
+@media(min-width: 600px) {
+  .create-user-container{
+    .card{
+      max-width: 600px;
+      margin: 0 auto;
+    }
+  }
+}
